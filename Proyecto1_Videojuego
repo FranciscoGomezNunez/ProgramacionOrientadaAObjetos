@@ -1,0 +1,1285 @@
+int juego;
+int evento;
+int semaforo;
+int turno;
+int turnoindividual;
+int player1;
+int player2;
+int ph1,at1,ph2,at2;
+corona pantalla;
+inicio portada;
+cortinilla general;
+tablero extendido;
+caja b1;
+caja b2;
+caja b3;
+caja b4;
+caja b5;
+caja b6;
+chidoso p1;
+cicloduende p2;
+lince p3;
+reyhueso p4;
+semihueso p5;
+boo p6;
+duelo fondo;
+elegirj1 j1;
+elegirj2 j2;
+ajugar vamos;
+batalla pant;
+named ver;
+turnoj1 tj1;
+turnoj2 tj2;
+fin1 f1;
+fin2 f2;
+aleatorio1 al1;
+aleatorio2 al2;
+aleatorio3 al3;
+
+
+
+void setup ()
+{
+  size (1200,700);
+  background (0);
+  portada = new inicio ();
+  general = new cortinilla(0,255);
+  extendido = new tablero (0,255);
+  fondo = new duelo(width/2,20,680);
+  tj1 = new turnoj1();
+  tj2 = new turnoj2();
+  f1 = new fin1(); 
+  f2 = new fin2();
+  al1 = new aleatorio1();
+  al2 = new aleatorio2();
+  al3 = new aleatorio3();
+  
+  
+  
+  
+}
+
+void draw ()
+{
+  switch(juego)
+  {
+    case 0:
+    portada.display ();
+    keyPressed();
+      if (key=='1'){
+      juego+=1;
+      }
+      break;
+    case 1:
+    general.display();
+    keyPressed();
+    if (key=='2'){
+      juego+=1;
+    }
+    break;
+    case 2:
+    extendido.display();
+    extendido.seleccion();
+    break;
+    case 3:
+    fondo.display();
+    break;
+    case 4:
+    f1.display();
+    break;
+    case 5:
+    f2.display();
+    break;
+    
+    
+    }
+  
+}
+
+class aleatorio3
+{
+  void display()
+  {
+    frameRate(2);
+    stroke(random(255));
+    fill(0);
+    rect(480,500,240,100);
+    fill (255);
+    textSize(20);
+    textAlign(CENTER);
+    text ("Evento aleatorio 3",width/2,560);
+    text ("Tu vida disminuye un punto",width/2,600);delay(500);
+  }
+  
+}
+
+class aleatorio2
+{
+  void display()
+  {
+    frameRate(2);
+    stroke(random(255));
+    fill(0);
+    rect(480,500,240,100);
+    fill (255);
+    textSize(20);
+    textAlign(CENTER);
+    text ("Evento aleatorio 2",width/2,560);
+    text ("Tu vida permanece igual",width/2,600);
+  }
+  
+}
+class aleatorio1
+{
+  void display()
+  {
+    frameRate(2);
+    stroke(random(255));
+    fill(0);
+    rect(480,500,240,100);
+    fill (255);
+    textSize(20);
+    textAlign(CENTER);
+    text ("Evento aleatorio 1",width/2,560);
+    text ("Tu vida aumenta 3 puntos",width/2,600);
+  }
+  
+}
+
+class fin2
+{
+  void display()
+  {
+    background(0);
+    fill (255);
+    textSize(40);
+    textAlign(CENTER);
+    text ("El juego ha terminado, gana el Jugador2",width/2,180);
+    text ("¡Felicidades!¡Bien Jugado Guerrero!",width/2,360);
+    textSize(35);
+    text ("Para volver a jugar, cierra la ventana y carga el juego nuevamente",width/2,540);
+  }
+  
+}
+
+class fin1
+{
+  void display()
+  {
+    background(0);
+    fill (255);
+    textSize(40);
+    textAlign(CENTER);
+    text ("El juego ha terminado, gana el Jugador1",width/2,180);
+    text ("¡Felicidades!¡Bien Jugado Guerrero!",width/2,360);
+    textSize(35);
+    text ("Para volver a jugar, cierra la ventana y carga el juego nuevamente",width/2,540);
+  }
+  
+}
+
+class turnoj2
+{
+  void display()
+  {
+    stroke(random(255));
+    fill(0);
+    rect(480,300,240,100);
+    fill (255);
+    textSize(20);
+    textAlign(CENTER);
+    text ("Turno Jugador2",width/2,320);
+    text ("Ataca presionando W",width/2,360);
+  }
+  
+}
+
+class turnoj1
+{
+  void display()
+  {
+    stroke(random(255));
+    fill(0);
+    rect(480,300,240,100);
+    fill (255);
+    textSize(20);
+    textAlign(CENTER);
+    text ("Turno Jugador1",width/2,320);
+    text ("Ataca presionando Q",width/2,360);
+  }
+  
+}
+class named
+{
+  String name1;
+  void namej1 ()
+  {
+    if (player1==1)
+    {
+      name1="JUGADOR 1: CHIDOSO";
+      textAlign(CENTER);
+      textSize(20);
+      text (name1,300,50);
+    }
+    
+  }
+}
+
+class ajugar
+{
+  void display()
+  {
+    noStroke();
+    fill(0);
+    rect(0,0,1200,67);
+    fill (255);
+    textSize(20);
+    textAlign(CENTER);
+    text ("Presione 3 para jugar.",width/2,30);
+  }
+  
+}
+
+class elegirj2
+{
+  void display()
+  {
+    noStroke();
+    fill(0);
+    rect(0,0,1200,67);
+    fill (255);
+    textSize(20);
+    textAlign(CENTER);
+    text ("Jugador2 elige tu personaje.",width/2,30);
+  }
+  
+}
+
+class elegirj1
+{
+  void display()
+  {
+    noStroke();
+    fill(0);
+    rect(0,0,1200,67);
+    fill (255);
+    textSize(20);
+    textAlign(CENTER);
+    text ("Jugador1 elige tu personaje.",width/2,30);
+  }
+  
+}
+
+class duelo
+{
+  int x,arriba,abajo;
+  
+  duelo (int x_,int arriba_,int abajo_)
+  {
+    x=x_;
+    arriba=arriba_;
+    abajo=abajo_;
+  }
+  
+  void display()
+  {
+    pant = new batalla();
+    background (0);
+    strokeWeight(5);
+    stroke(random(255));
+    line (x,arriba,x,abajo);
+    fill (255);
+    textSize(30);
+    text ("Jugador1",100,50);
+    text ("Jugador2",700,50);
+    pant.display();
+    pant.lucha();
+    
+  }
+}
+
+class batalla
+{
+  int x1,y1,x2,y2;
+  String name1,name2;
+  
+  /*batalla (int ph1_,int at1_,int ph2_,int at2_,String name1_,String name2_,int x1_,int y1_, int x2_, int y2_)
+  {
+    ph1 = ph1_;
+    at1 = at1_;
+    ph2 = ph2_;
+    at2 = at2_;
+    name1 = name1_;
+    name2 = name2_;
+    x1 = x1_;
+    y1 = y1_;
+    x2 = x2_;
+    y2 = y2_;
+  }*/
+ 
+  
+  void display ()
+  {
+    if (player1==1)
+    {
+      //ph1=26;
+      at1=3;
+      pushMatrix();
+      translate(100-(random(10)),100);
+      scale(1.5);
+      p1.display ();
+      popMatrix();
+      fill(255);
+      rect (50,650,ph1*10,20);
+    }
+    if (player1==2)
+    {
+      //ph1+=30;
+      at1=2;
+      pushMatrix();
+      translate(100-(random(10)),100);
+      scale(1.5);
+      p2.display ();
+      popMatrix();
+      fill(255);
+      rect (50,650,ph1*10,20);
+    }
+    if (player1==3)
+    {
+      //ph1+=22;
+      at1=3;
+      pushMatrix();
+      translate(100-(random(10)),100);
+      scale(1.5);
+      p3.display ();
+      popMatrix();
+      fill (255);
+      rect (50,650,ph1*10,20);
+    }
+    if (player1==4)
+    {
+      //ph1+=25;
+      at1=3;
+      pushMatrix();
+      translate(100-(random(10)),100);
+      scale(1.5);
+      p4.display ();
+      popMatrix();
+      fill (255);
+      rect (50,650,ph1*10,20);
+    }
+    if (player1==5)
+    {
+      //ph1+=20;
+      at1=2;
+      pushMatrix();
+      translate(100-(random(10)),100);
+      scale(1.5);
+      p5.display ();
+      popMatrix();
+      fill (255);
+      rect (50,650,ph1*10,20);
+    }
+    if (player1==6)
+    {
+      //ph1+=18;
+      at1=4;
+      pushMatrix();
+      translate(100-(random(10)),100);
+      scale(1.5);
+      p6.display ();
+      popMatrix();
+      fill (255);
+      rect (50,650,ph1*10,20);
+    }
+    
+    if (player2==1)
+    {
+      //ph2=26;
+      at2=3;
+      pushMatrix();
+      translate(150+600-(random(10)),100);
+      scale(1.5);
+      p1.display ();
+      popMatrix();
+      fill (255);
+      rect (650,650,ph2*10,20);
+     
+    }
+    if (player2==2)
+    {
+      //ph2+=30;
+      at2=2;
+      pushMatrix();
+      translate(150+600-(random(10)),100);
+      scale(1.5);
+      p2.display ();
+      popMatrix();
+      fill (255);
+      rect (650,650,ph2*10,20);
+    }
+    if (player2==3)
+    {
+      //ph2+=22;
+      at2=3;
+      pushMatrix();
+      translate(150+600-(random(10)),100);
+      scale(1.5);
+      p3.display ();
+      popMatrix();
+      fill (255);
+      rect (650,650,ph2*10,20);
+    }
+    if (player2==4)
+    {
+      //ph2+=25;
+      at2=3;
+      pushMatrix();
+      translate(150+600-(random(10)),100);
+      scale(1.5);
+      p4.display ();
+      popMatrix();
+      fill (255);
+      rect (650,650,ph2*10,20);
+    }
+    if (player2==5)
+    {
+      //ph2+=20;
+      at2=2;
+      pushMatrix();
+      translate(150+600-(random(10)),100);
+      scale(1.5);
+      p5.display ();
+      popMatrix();
+      fill (255);
+      rect (650,650,ph2*10,20);
+    }
+    if (player2==6)
+    {
+      //ph2+=18;
+      at2=4;
+      pushMatrix();
+      translate(150+600-(random(10)),100);
+      scale(1.5);
+      p6.display ();
+      popMatrix();
+      stroke(0);
+      fill (255);
+      rect (650,650,ph2*10,20);
+    }
+    
+    
+  
+  }
+   void lucha()
+  {
+    turnoindividual=(turno%2);
+    switch(turnoindividual)
+    {
+      case 0:
+      frameRate(30);
+      tj1.display();
+      evento=(floor(random(3)));
+      keyPressed();
+      if ((key=='Q')||(key=='q')){
+        if(evento==0){
+          al1.display();
+          ph1+=3;}
+        if(evento==1){
+          al2.display();
+          ph1+=0;}
+        if(evento==2){
+          al3.display();
+          ph1-=1;}}
+      keyPressed();
+      if((key=='q')||(key=='Q'))
+      {
+        ph2-=at1;
+        if (ph2<=0)
+        {
+          juego+=1;
+        }
+        else{turno+=1; }
+      }
+      turnoindividual=(turno%2);
+      break;
+    case 1:
+    frameRate(30);
+      tj2.display();
+      evento=(floor(random(3)));
+      keyPressed();
+      if ((key=='w')||(key=='W')){
+        if(evento==0){
+          al1.display();
+          ph2+=3;}
+        if(evento==1){
+          al2.display();
+          ph2+=0;}
+        if(evento==2){
+          al3.display();
+          ph2-=1;}}
+      keyPressed();
+      if ((key=='W')||(key=='w'))
+      {
+        ph1-=at2;
+        
+        if (ph1<=0)
+        {
+          juego+=2;
+        }
+        else{
+        turno+=1;
+        }
+      }
+      turnoindividual=(turno%2);
+      break;
+    }
+  }
+}
+
+class boo
+{
+  float x, y;
+    
+    //metodoclase
+    
+    /*boo(float x_,float y_)
+    {
+      x = x_;
+      y = y_;
+    }*/
+    
+    void display ()
+    {
+      //pushMatrix();
+      //translate(x,y);
+      stroke (255);
+  strokeWeight (2);
+  fill (255);
+  ellipse (192,120,30,100);
+  ellipse (48,120,30,100);
+  ellipse (120,150,160,160);
+  stroke(0);
+  fill (0);
+  arc (120,170,80,100,radians(0),radians(180));
+  noStroke ();
+  fill (255);
+  ellipse (110,165,20,40);
+  ellipse (130,165,20,40);
+  ellipse (90,165,20,50);
+  ellipse (150,165,20,50);
+  strokeWeight(2);
+  stroke(0);
+  line (80,170,160,170);
+  noStroke ();
+  fill (0);
+  ellipse (100,140,10,20);
+  ellipse (140,140,10,20);
+  fill (255);
+  ellipse (100,137,5,10);
+  ellipse (140,137,5,10);
+  strokeWeight (2);
+  stroke (0);
+  arc (100,115,40,30,radians(0),radians(180));
+  arc (140,115,40,30,radians(0),radians(180));
+  //popMatrix();
+      
+      
+    }
+  
+}
+
+class semihueso
+{
+  float x, y;
+    
+    //metodoclase
+    
+    /*semihueso(float x_,float y_)
+    {
+      x = x_;
+      y = y_;
+    }
+    */
+  void display()
+  {
+    //pushMatrix();
+    //translate(x,y);
+    stroke (255);
+  strokeWeight (2);
+  fill (255);
+  triangle (135,50,80,80,80,15);
+  triangle (110,50,160,80,160,15);
+  ellipse (120,80,80,100);
+  fill (0);
+  ellipse (120,50,20,20);
+  ellipse (100,70,20,20);
+  ellipse (140,70,20,20);
+  triangle (120,70,110,95,130,95);
+  arc (120,100,40,50,radians(0),radians(180));
+  ellipse (120,50,5,5);
+  ellipse (100,70,5,5);
+  ellipse (140,70,5,5);
+
+  fill (255);
+  rect (117,130,6,5);
+  rect (117,140,6,5);
+  rect (115,150,10,5);
+  rect (110,160,20,5);
+  rect (105,170,30,5);
+  beginShape ();
+    vertex (100,180);
+    vertex (140,180);
+    vertex (140,190);
+    vertex (130,190);
+    vertex (130,200);
+    vertex (140,200);
+    vertex (140,210);
+    vertex (100,210);
+    vertex (100,200);
+    vertex (110,200);
+    vertex (110,190);
+    vertex (100,190);
+   endShape (CLOSE);
+   rect (60,160,45,5);
+   rect (50,160,5,5);
+   rect (50,110,5,45);
+   rect (50,90,5,15);
+   fill (0);
+   triangle (60,90,60,95,65,92.5);
+   triangle (60,95,60,100,65,97.5);
+   triangle (60,100,60,105,65,102.5);
+   fill (255);
+   rect (135,160,45,5);
+   rect (185,160,5,5);
+   rect (185,170,5,45);
+   rect (185,220,5,15);
+   fill (0);
+   triangle (175,222.5,180,225,180,220);
+   triangle (180,225,180,230,175,227.5);
+   triangle (175,232.5,180,235,180,230);
+   fill (255);
+   rect (100,215,10,60);
+   rect (130,215,10,60);
+   rect (90,280,20,10);
+   rect (130,280,20,10);
+   fill (0);
+   triangle (85,280,85,285,80,282.5);
+   triangle (85,285,85,290,80,287.5);
+   triangle (155,280,155,285,160,282.5);
+   triangle (155,285,155,290,160,287.5);
+   //popMatrix();
+    
+  }
+}
+
+class reyhueso
+{
+  float x, y, xb, yb;
+    
+    //metodoclase
+    
+    /*reyhueso(float x_,float y_)
+    {
+      x = x_;
+      y = y_;
+      xb = 0;
+      yb = 0;
+    }*/
+    
+    void display ()
+    {
+  //pushMatrix();
+  //translate(x,y);
+      stroke (255);
+  strokeWeight (2);
+  triangle (120,15,80,50,160,50);
+  triangle (80,15,105,50,135,50);
+  triangle (160,15,105,50,135,50);
+  triangle (xb+120,yb+15,xb+105,yb+50,xb+135,yb+50);
+  triangle (xb+105,yb+50,xb+80,yb+50,xb+80,yb+15);
+  triangle (xb+135,yb+50,xb+160,yb+50,xb+160,yb+15);
+  fill (255);
+  ellipse (xb+120,yb+10,10,10);
+  ellipse (xb+80,yb+10,10,10);
+  ellipse (xb+160,yb+10,10,10);
+  beginShape();
+    vertex(xb+80,yb+50);
+    vertex(xb+80,yb+95);
+    vertex(xb+105,yb+117);
+    vertex(xb+105,yb+130);
+    vertex(xb+135,yb+130);
+    vertex(xb+135,yb+117);
+    vertex(xb+160,yb+95);
+    vertex(xb+160,yb+50);
+  endShape(CLOSE);
+  fill (0);
+  rect (xb+90,yb+65,20,20);
+  rect (xb+130,yb+65,20,20);
+  rect (xb+97,yb+72,6,6);
+  rect (xb+137,yb+72,6,6);
+  triangle (xb+120,yb+90,xb+130,yb+110,xb+110,yb+110);
+  rect (xb+105,yb+125,5,5);
+  rect (xb+110,yb+125,5,5);
+  rect (xb+115,yb+125,5,5);
+  rect (xb+120,yb+125,5,5);
+  rect (xb+125,yb+125,5,5);
+  rect (xb+130,yb+125,5,5);
+  rect (xb+105,yb+135,5,5);
+  rect (xb+110,yb+135,5,5);
+  rect (xb+115,yb+135,5,5);
+  rect (xb+120,yb+135,5,5);
+  rect (xb+125,yb+135,5,5);
+  rect (xb+130,yb+135,5,5);
+  fill (255);
+  rect (xb+105,yb+140,30,5);
+  rect (xb+115,yb+150,10,5);
+  rect (xb+110,yb+160,20,5);
+  rect (xb+105,yb+170,30,5);
+  beginShape ();
+    vertex (xb+100,yb+180);
+    vertex (xb+140,yb+180);
+    vertex (xb+140,yb+190);
+    vertex (xb+130,yb+190);
+    vertex (xb+130,yb+200);
+    vertex (xb+140,yb+200);
+    vertex (xb+140,yb+210);
+    vertex (xb+100,yb+210);
+    vertex (xb+100,yb+200);
+    vertex (xb+110,yb+200);
+    vertex (xb+110,yb+190);
+    vertex (xb+100,yb+190);
+   endShape (CLOSE);
+   rect (60,160,45,5);
+   rect (50,160,5,5);
+   rect (50,110,5,45);
+   rect (50,90,5,15);
+   fill (0);
+   rect (60,90,5,5);
+   rect (60,95,5,5);
+   rect (60,100,5,5);
+   fill (255);
+   rect (135,160,45,5);
+   rect (185,160,5,5);
+   rect (185,170,5,45);
+   rect (185,220,5,15);
+   fill (0);
+   rect (175,220,5,5);
+   rect (175,225,5,5);
+   rect (175,230,5,5);
+   fill (255);
+   rect (100,215,10,60);
+   rect (130,215,10,60);
+   rect (90,280,20,10);
+   rect (130,280,20,10);
+   fill (0);
+   rect (80,280,5,5);
+   rect (80,285,5,5);
+   rect (155,280,5,5);
+   rect (155,285,5,5);
+   //popMatrix();
+      
+    }
+}
+
+class lince 
+{
+  float x, y;
+    
+    //metodoclase
+    
+    /*lince(float x_,float y_)
+    {
+      x = x_;
+      y = y_;
+    }*/
+  
+  void display ()
+  {
+    //pushMatrix();
+    //translate (x,y);
+  stroke (255);
+  fill (0);
+  strokeWeight (2);
+  ellipse (90,240,60,100);
+  ellipse (150,240,60,100);
+  line (90,290,90,270);
+  line (80,286,80,265);
+  line (100,286,100,265);
+  line (150,290,150,270);
+  line (140,286,140,265);
+  line (160,286,160,265);
+  triangle (90,15,115,65,65,65);
+  triangle (150,15,175,65,125,65);
+  triangle (90,30,100,50,80,50);
+  triangle (150,30,160,50,140,50);
+  ellipse (120,180,160,140);
+  ellipse (120,90,130,110);
+  ellipse (100,70,30,30);
+  ellipse (140,70,30,30);
+  fill (255);
+  ellipse (100,70,10,10);
+  ellipse (140,70,10,10);
+  ellipse (120,95,10,5);
+  fill (0);
+  arc (110,120,20,15,radians(0),radians(180));
+  arc (130,120,20,15,radians(0),radians(180));
+  line (118,112,80,122);
+  line (122,112,160,122);
+  line (118,110,80,110);
+  line (122,110,160,110);
+  line (118,108,80,98);
+  line (122,108,160,98);
+  beginShape();
+    vertex(50,150);
+    bezierVertex(50,150,180,220,44,200);
+  endShape();
+  beginShape();
+    vertex(190,150);
+    bezierVertex(190,150,60,220,196,200);
+  endShape();
+  line (104,197,85,190);
+  line (104,190,80,180);
+  line (99,202,80,196);
+  line (136,197,155,190);
+  line (136,190,160,180);
+  line (141,202,160,196);
+  //popMatrix();
+}
+    
+  }
+
+class cicloduende
+{
+  float x, y;
+    
+    //metodoclase
+    
+    /*cicloduende(float x_,float y_)
+    {
+      x = x_;
+      y = y_;
+    }*/
+    
+    void display ()
+    {
+      //pushMatrix();
+      //translate(x,y);
+      stroke (255);
+      strokeWeight (2);
+      fill (0);
+      ellipse (100,240,30,80);
+      ellipse (140,240,30,80);
+      ellipse (80,190,30,80);
+      ellipse (160,190,30,80);
+      ellipse (120,180,100,140);
+      ellipse (90,90,25,25);
+      ellipse (90,90,16,16);
+      ellipse (150,90,25,25);
+      ellipse (150,90,16,16);
+      ellipse (120,90,68,80);
+      line (73,200,166,200);
+      line (79,220,160,220);
+      fill (255);
+      rect (105,195,30,30);
+      fill (0);
+      rect (110,200,20,20);
+      fill (255);
+      triangle (120,10,90,70,150,70);
+      ellipse (120,10,10,10);
+      ellipse (117,107,3,3);
+      ellipse (123,107,3,3);
+      ellipse (120,118,20,10);
+      fill (0);
+      ellipse (120,90,20,20);
+      ellipse (120,90,7,7);
+      strokeWeight (4);
+      line (110,75,130,75);
+      //popMatrix();
+      
+    }
+  
+}
+
+class chidoso
+    {
+      float x, y;
+    
+    //metodoclase
+    
+    /*chidoso(float x_,float y_)
+    {
+      x = x_;
+      y = y_;
+    }*/
+      
+      void display()
+      {
+        //pushMatrix();
+        //translate(x,y);
+        stroke (255);
+        strokeWeight (2);
+        fill (0);
+        ellipse (95,35,35,35);
+        ellipse (145,35,35,35);
+        ellipse (95,35,23,23);
+        ellipse (145,35,23,23);
+        ellipse (60,80,10,20);
+        ellipse (50,85,10,20);
+        ellipse (70,85,10,20);
+        ellipse (60,120,40,80);
+        ellipse (90,270,15,30);
+        ellipse (75,265,15,30);
+        ellipse (105,265,15,30);
+        ellipse (150,270,15,30);
+        ellipse (135,265,15,30);
+        ellipse (165,265,15,30);
+        ellipse (90,230,60,90);
+        ellipse (150,230,60,90);
+        ellipse (120,165,140,160);
+        ellipse (120,60,80,80);
+        line (55,190,185,190);
+        line (55,196,180,196);
+        arc (100,115,40,10,radians(0),radians(180));
+        arc (140,115,40,10,radians(0),radians(180));
+        arc (100,140,40,10,radians(0),radians(180));
+        arc (140,140,40,10,radians(0),radians(180));
+        arc (100,165,40,10,radians(0),radians(180));
+        arc (140,165,40,10,radians(0),radians(180));
+        ellipse (170,190,10,20);
+        ellipse (160,185,10,20);
+        ellipse (180,185,10,20);
+        arc (170,150,40,80,radians(14),radians(270));
+        fill (255);
+        arc (120,60,80,80,radians(20),radians(160));
+        fill (0);
+        stroke(0);
+        triangle (120,60,90,70,150,70);
+        arc (120,82,30,18,radians(0),radians(180));
+        stroke (255);
+        fill (255);
+        arc (120,65,15,10,radians(180),radians(360));
+        line (105,50,135,50);
+        line (84,46,95,50);
+        line (145,50,156,48);
+        arc (105,48,20,15,radians(0),radians(180));
+        arc (135,48,20,15,radians(0),radians(180));
+        fill (0);
+        arc (105,40,15,3,radians(180),radians(360));
+        arc (135,40,15,3,radians(180),radians(360));
+        //popMatrix();
+      }
+    }
+    
+
+class tablero
+  {
+    int colorfondo, colorletras;
+    String instruccion, iniciar, ch, c, l, r, s, b;
+    
+    //metodoclase
+    
+    tablero (int colorfondo_, int colorletras_)
+    {
+    colorfondo = colorfondo_;
+    colorletras = colorletras_;
+    }
+    
+    void display()
+    {
+      b1 = new caja(7.5,68);
+      b2 = new caja(405,68);
+      b3 = new caja(802.5,68);
+      b4 = new caja(7.5,384);
+      b5 = new caja(405,384);
+      b6 = new caja(802.5,384);
+      p1 = new chidoso();
+      p2 = new cicloduende();
+      p3 = new lince();
+      p4 = new reyhueso();
+      p5 = new semihueso();
+      p6 = new boo ();
+      j1 = new elegirj1();
+      j2 = new elegirj2();
+      vamos = new ajugar();
+      instruccion = "Elige tu personaje presionando la tecla correspondiente de acuerdo a tu número de jugador.";
+      iniciar = "Cuando ambos jugadores hayan seleccionado su jugador presionen 3.";
+      ch = "CHIDOSO, Vida=26, Ataque=3, Jugador1 presione O, Jugador2 presione G";
+      c = "CICLODUENDE, Vida=30, Ataque=2, Jugador1 presione C, Jugador2 presione D";
+      l = "LINCE, Vida=22, Ataque=3, Jugador1 presione L, Jugador2 presione I";
+      r = "REY HUESO, Vida=25, Ataque=3, Jugador1 presione R, Jugador2 presione H";
+      s = "SEMIHUESO, Vida=20, Ataque=2, Jugador1 presione S, Jugador2 presione M";
+      b = "BOO, Vida=18, Ataque=4, Jugador1 presione B, Jugador2 presione U";
+      background (colorfondo);
+      fill (colorletras);
+      textAlign (CENTER);
+      textSize (22);
+      text (instruccion,50,5,1100,30);
+      text (iniciar,50,30,1100,60);
+      b1.display();
+      b2.display();
+      b3.display();
+      b4.display();
+      b5.display();
+      b6.display();
+      pushMatrix();
+      translate(7.5,68);
+      p1.display();
+      popMatrix();
+      pushMatrix();
+      translate(405,68);
+      p2.display();
+      popMatrix();
+      pushMatrix();
+      translate(802.5,68);
+      p3.display();
+      popMatrix();
+      pushMatrix();
+      translate(7.5,384);
+      p4.display();
+      popMatrix();
+      pushMatrix();
+      translate(405,384);
+      p5.display();
+      popMatrix();
+      pushMatrix();
+      translate(802.5,384);
+      p6.display();
+      popMatrix();
+      fill (0);
+      text (ch,247.5,78,150,300);
+      text (c,645,78,150,300);
+      text (l,1042.5,78,150,300);
+      text (r,247.5,399,150,300);
+      text (s,645,399,150,300);
+      text (b,1042.5,399,150,300);
+    }
+    void seleccion ()
+    {
+      switch (semaforo)
+      {
+        case 0:
+        j1.display();
+        keyPressed();
+        if ((key=='O')||(key=='o'))
+        {
+         ph1+=26;
+         player1=1;
+         semaforo+=1; 
+        }
+        if ((key=='C')||(key=='c'))
+        {
+         ph1+=30;
+         player1=2;
+         semaforo+=1; 
+        }
+        if ((key=='L')||(key=='l'))
+        {
+         ph1+=22;
+         player1=3; 
+         semaforo+=1; 
+        }
+        if ((key=='R')||(key=='r'))
+        {
+         ph1+=25; 
+         player1=4; 
+         semaforo+=1; 
+        }
+        if ((key=='S')||(key=='s'))
+        {
+         ph1+=20;
+         player1=5;
+         semaforo+=1; 
+        }
+        if ((key=='B')||(key=='b'))
+        {
+         ph1+=18;
+         player1=6;
+         semaforo+=1; 
+        }
+        break;
+        case 1:
+        j2.display();
+        keyPressed();
+        if ((key=='G')||(key=='g'))
+        {
+          ph2+=26;
+          player2=1;
+          semaforo+=1;
+        }
+        if ((key=='D')||(key=='d'))
+        {
+          ph2+=30;
+          player2=2;
+          semaforo+=1;
+        }
+        if ((key=='I')||(key=='i'))
+        {
+          ph2+=22;
+          player2=3;
+          semaforo+=1;
+        }
+        if ((key=='H')||(key=='h'))
+        {
+          ph2+=25;
+          player2=4;
+          semaforo+=1;
+        }
+        if ((key=='M')||(key=='m'))
+        {
+          ph2+=20;
+          player2=5;
+          semaforo+=1;
+        }
+        if ((key=='U')||(key=='u'))
+        {
+          ph2+=18;
+          player2=6;
+          semaforo+=1;
+        }
+        break;
+        case 2:
+        vamos.display();
+        keyPressed();
+        if (key=='3')
+        {
+          juego+=1;
+        }
+        break;
+        
+      }
+    }
+}
+
+class cortinilla
+{
+  //atributos
+    int colorfondo, colorletras;
+    String historia, instruccion, iniciar;
+    
+    //metodoclase
+    
+    cortinilla (int colorfondo_, int colorletras_)
+    {
+    colorfondo = colorfondo_;
+    colorletras = colorletras_;
+    }
+    
+    void display()
+    {
+      historia = "La raza humana como la conocemos ha desaparecido de la tierra, los animales y los últimos seres humanos sufrieron mutaciones. Los no vivos han tomado poder y regresan para apoderarse del planeta. Entre los no vivos se encuentra Rey Hueso, el líder, fue de los últimos humanos que habitaron la tierra.";
+      instruccion = "Tu misión es elegir un bando y luchar por el dominio de la tierra.";
+      iniciar = "Presiona 2 para continuar.";
+      background (colorfondo);
+      fill (colorletras);
+      textAlign (CENTER);
+      textSize (25);
+      text (historia,50,50,1100,200);
+      text (instruccion,50,250,1100,50);
+      text (iniciar,50,450,1100,50);
+      
+    }
+}
+
+class inicio
+{
+  void display ()
+  {
+  background(0);
+  pantalla = new corona();
+  fill (random(255));
+  textSize (100);
+  textAlign (CENTER);
+  text("BATALLA DISTÓPICA",width/2,240);
+  textSize (70);
+  text("Rebelión de los no vivos",width/2,310);
+  textSize(35);
+  text("Presiona 1 para continuar",width/2,480);
+  pantalla.display ();
+  }
+}
+class corona
+{
+  void display() 
+  {
+  pushMatrix();
+  scale (4.0);
+  translate(120,120);
+  //translate(random(120),random(120));
+  strokeWeight (2);
+  //fill (random(255));
+  triangle (120,15,80,50,160,50);
+  triangle (80,15,105,50,135,50);
+  triangle (160,15,105,50,135,50);
+  triangle (120,15,105,50,135,50);
+  triangle (105,50,80,50,80,15);
+  triangle (135,50,160,50,160,15);
+  ellipse (120,10,10,10);
+  ellipse (80,10,10,10);
+  ellipse (160,10,10,10);
+  popMatrix();
+    
+  }
+  
+  class creatura
+  {
+    //atributos
+    int pv,at;
+    String nombre;
+    //imagen del objeto
+    
+    //construccion de clase
+    
+    creatura (int pv_,int at_,String nombre_)
+    {
+      pv = pv_;
+      at = at_;
+      nombre = nombre_;
+      
+      
+    }
+     
+    //metodos
+    
+    void display ()
+    {
+      
+      
+    }
+    
+  }
+  
+  
+  }
+  
+  
+  
+  class caja
+  {
+    //atributos
+    float x, y;
+    
+    //metodoclase
+    
+    caja(float x_,float y_)
+    {
+      x = x_;
+      y = y_;
+    }
+    
+    void display()
+    {
+      fill (255);
+      noStroke ();
+      rect (x,y,390,300);
+      fill (0);
+      stroke (255);
+      strokeWeight (2);
+      rect (x,y,240,300);
+      
+    }
+    
+    
+ 
+    
+  }
